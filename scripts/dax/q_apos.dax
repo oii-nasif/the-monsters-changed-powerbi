@@ -1,0 +1,5 @@
+EVALUATE
+ADDCOLUMNS (
+    FILTER ( VALUES ( DimFear[Fear] ), SEARCH ( "one", DimFear[Fear], 1, 0 ) > 0 ),
+    "cp", UNICODE ( MID ( DimFear[Fear], SEARCH ( "one", DimFear[Fear], 1, 0 ) + 3, 1 ) )
+)

@@ -1,0 +1,69 @@
+{
+  "fps": 10,
+  "total": 5,
+  "regions": [
+    {
+      "name": "live_ghost",
+      "x": 260,
+      "y": 190,
+      "w": 440,
+      "h": 194,
+      "file": "live_ghost.gif",
+      "bytes": 171468
+    },
+    {
+      "name": "live_room",
+      "x": 260,
+      "y": 384,
+      "w": 440,
+      "h": 386,
+      "file": "live_room.gif",
+      "bytes": 823264
+    },
+    {
+      "name": "live_city",
+      "x": 700,
+      "y": 0,
+      "w": 657,
+      "h": 770,
+      "file": "live_city.gif",
+      "bytes": 354386
+    },
+    {
+      "name": "live_bar_left",
+      "x": 36,
+      "y": 793,
+      "w": 640,
+      "h": 20,
+      "file": "live_bar_left.gif",
+      "bytes": 39271
+    },
+    {
+      "name": "live_bar_right",
+      "x": 696,
+      "y": 793,
+      "w": 625,
+      "h": 20,
+      "file": "live_bar_right.gif",
+      "bytes": 42378
+    },
+    {
+      "name": "live_bar_bottom",
+      "x": 36,
+      "y": 1383,
+      "w": 1285,
+      "h": 20,
+      "file": "live_bar_bottom.gif",
+      "bytes": 46249
+    },
+    {
+      "name": "live_footer",
+      "x": 0,
+      "y": 1800,
+      "w": 1357,
+      "h": 120,
+      "file": "live_footer.gif",
+      "bytes": 196632
+    }
+  ]
+}

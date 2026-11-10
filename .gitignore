@@ -1,0 +1,6 @@
+# regenerable build output (see README "Regenerate the pbix")
+build/pbix*/
+build/live/frames_*/
+build/shots/
+node_modules/
+*.log

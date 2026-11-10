@@ -1,0 +1,15 @@
+EVALUATE
+UNION (
+    ROW ( "m", "People Keeping A Childhood Fear", "v", [People Keeping A Childhood Fear] ),
+    ROW ( "m", "People Keeping None", "v", [People Keeping None] ),
+    ROW ( "m", "Pct Keeping A Childhood Fear", "v", [Pct Keeping A Childhood Fear] ),
+    ROW ( "m", "Pct Keeping None", "v", [Pct Keeping None] ),
+    ROW ( "m", "Childhood Selections", "v", [Childhood Selections] ),
+    ROW ( "m", "Adult Selections", "v", [Adult Selections] ),
+    ROW ( "m", "Still Afraid (all)", "v", [Still Afraid] ),
+    ROW ( "m", "Still Afraid Snakes", "v", CALCULATE ( [Still Afraid], DimFear[Fear] = "Snakes" ) ),
+    ROW ( "m", "Pct People Childhood - Dark cat", "v", CALCULATE ( [Pct of People Childhood], DimFear[Category] = "Dark, Unknown & Supernatural" ) ),
+    ROW ( "m", "Pct People Adult - Dark cat", "v", CALCULATE ( [Pct of People Adult], DimFear[Category] = "Dark, Unknown & Supernatural" ) ),
+    ROW ( "m", "Pct People Childhood - War", "v", CALCULATE ( [Pct of People Childhood], DimFear[Fear] = "War" ) ),
+    ROW ( "m", "Pct People Adult - War", "v", CALCULATE ( [Pct of People Adult], DimFear[Fear] = "War" ) )
+)

@@ -1,0 +1,11 @@
+EVALUATE
+UNION (
+    ROW ( "Metric", "Respondents", "Value", [Number of Respondents] ),
+    ROW ( "Metric", "Selections total", "Value", [Number of Fear Selections] ),
+    ROW ( "Metric", "Childhood selections", "Value", CALCULATE ( [Number of Fear Selections], FactFearSelection[LifeStage] = "Childhood" ) ),
+    ROW ( "Metric", "Adult selections", "Value", CALCULATE ( [Number of Fear Selections], FactFearSelection[LifeStage] = "Adult" ) ),
+    ROW ( "Metric", "Fears remained (pairs)", "Value", [Responses Where Fears Remained] ),
+    ROW ( "Metric", "Childhood-only", "Value", [Childhood-Only Fear Selections] ),
+    ROW ( "Metric", "Adult-only", "Value", [Adult-Only Fear Selections] ),
+    ROW ( "Metric", "Respondents keeping >=1 fear", "Value", CALCULATE ( [Number of Respondents], FactFearSelection[IsRetained] = TRUE () ) )
+)

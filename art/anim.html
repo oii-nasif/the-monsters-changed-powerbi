@@ -1,0 +1,157 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#05070D;width:1080px;height:1350px;overflow:hidden;font-family:"Segoe UI",Arial,sans-serif;color:#F5F1E8}
+  #stage{position:relative;width:1080px;height:1350px;overflow:hidden;background:#05070D}
+  #bg{position:absolute;left:0;top:0;width:1357px;height:1920px;transform-origin:top left}
+  #dim{position:absolute;inset:0;background:#05070D;opacity:0}
+  .layer{position:absolute;left:0;top:0;width:1080px;height:1350px}
+  .t{position:absolute;white-space:nowrap}
+  .head{font-family:"Arial Black",Arial,sans-serif;font-weight:900;letter-spacing:.5px}
+  .serif{font-family:Georgia,serif;font-style:italic}
+  .orange{color:#FF7A32}.blue{color:#39A0FF}.warm{color:#FFB36B}.cool{color:#8CD0FF}.muted{color:#A6B0C0}.grey{color:#8A94A6}
+  .panel{position:absolute;background:rgba(7,11,20,.94);border:2px solid #1C2A44;border-radius:18px}
+  .bar{position:absolute;height:22px;border-radius:4px}
+  .lbl{position:absolute;font-size:17px;text-align:right;white-space:nowrap}
+  .val{position:absolute;font-family:"Arial Black",Arial,sans-serif;font-size:16px;white-space:nowrap}
+  .card{position:absolute;width:300px;text-align:center}
+  .card .em{font-size:52px;line-height:60px}
+  .card .nm{font-size:19px;font-weight:700;margin-top:4px}
+  .card .big{font-family:"Arial Black",Arial,sans-serif;font-size:56px;line-height:60px;margin-top:8px}
+  .card .sm{font-size:15px;color:#A6B0C0}
+  .vign{position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%)}
+</style></head>
+<body>
+<div id="stage">
+  <img id="bg" src="anim_bg.png">
+  <div id="dim"></div>
+  <div class="vign"></div>
+  <div id="ui" class="layer"></div>
+</div>
+<script>
+// ---------------- data (all from the survey model) ----------------
+const CATS = [
+  ['Dark, Unknown & Supernatural', .46, .13], ['Animals & Insects', .37, .25], ['Nature & Environment', .35, .26],
+  ['Social & Emotional', .30, .28], ['Body, Health & Death', .26, .30], ['Confined & Physical Spaces', .22, .11],
+  ['Separation & Loss', .18, .38], ['Performance & Future', .10, .40]
+];
+const TOP = [['War', 14], ['Uncertainty about the future', 12], ['Financial insecurity / poverty', 11], ['Cancer or serious diagnosis', 9], ['Not being good enough', 9], ["Wasting one's potential", 9], ['Conflict / confrontation', 7], ['Nuclear disaster', 7]];
+const STAYED = [['🐍', 'Snakes', 11, 6], ['🚪', 'Being trapped', 14, 5], ['🏔️', 'Heights', 13, 4]];
+const CHANGED = [['💣', 'War', 5, 19], ['🔮', 'Uncertainty', 4, 14], ['🧠', 'Not good enough', 3, 10]];
+
+// ---------------- timeline (seconds) ----------------
+const S = { title: 0, hero: 4, evolve: 10, top: 16, stayed: 21.5, end: 27, total: 32 };
+const ease = x => x < 0 ? 0 : x > 1 ? 1 : 1 - Math.pow(1 - x, 3);
+const win = (t, a, d) => ease((t - a) / d);
+const fmtPct = v => Math.round(v * 100) + '%';
+
+const ui = document.getElementById('ui');
+const bg = document.getElementById('bg');
+function el(cls, style, html) { const d = document.createElement('div'); d.className = cls; d.setAttribute('style', style); d.innerHTML = html || ''; ui.appendChild(d); return d; }
+
+function render(t) {
+  ui.innerHTML = '';
+  // ---- background: the 1357-wide illustration at 1:1, centred horizontally, slow zoom-out in the opening
+  const zoom = t < S.hero ? 1.08 - 0.08 * win(t, 0, S.hero) : 1;
+  bg.style.transform = `translate(${-138 - (zoom - 1) * 540}px, ${-(zoom - 1) * 300}px) scale(${zoom})`;
+  // dim the illustration behind the data scenes
+  const inData = t >= S.evolve - .4 && t < S.end;
+  document.getElementById('dim').style.opacity = inData ? 0.55 * win(t, S.evolve - .6, .8) : (t >= S.end ? 0.55 * (1 - win(t, S.end, 1)) : 0);
+
+  // ---- scene 1: title (fades out when the end card arrives)
+  const titleOut = 1 - win(t, S.end - .3, .6);
+  const tt = win(t, S.title + .2, 1.2) * titleOut, tt2 = win(t, S.title + 1.0, 1.2) * titleOut, ts = win(t, S.title + 2.0, 1.0) * titleOut;
+  el('t head', `left:0;width:1080px;top:${60 - 20 * (1 - tt)}px;text-align:center;font-size:66px;opacity:${tt};text-shadow:0 2px 18px rgba(0,0,0,.8)`, '<span class="warm">THE MONSTERS</span> CHANGED.');
+  el('t head', `left:0;width:1080px;top:${140 - 20 * (1 - tt2)}px;text-align:center;font-size:66px;opacity:${tt2};text-shadow:0 2px 18px rgba(0,0,0,.8)`, 'THE FEAR <span class="cool">DIDN’T.</span>');
+  el('t serif', `left:0;width:1080px;top:232px;text-align:center;font-size:25px;opacity:${ts};text-shadow:0 2px 12px rgba(0,0,0,.9)`, '105 people. One childhood survey. Two versions of fear.');
+
+  // ---- scene 2: hero stats
+  if (t >= S.hero - .5 && t < S.evolve + .6) {
+    const h1 = win(t, S.hero, 1.2), h2 = win(t, S.hero + 2.2, 1.2), out = 1 - win(t, S.evolve - .4, .6);
+    const cap = win(t, S.hero - .5, .8) * out;
+    el('t serif warm', `left:60px;top:300px;font-size:22px;line-height:30px;opacity:${cap};white-space:normal;width:220px`, 'The dark.<br>Monsters.<br>Being trapped.<br>What if?');
+    el('t serif cool', `right:60px;top:300px;font-size:22px;line-height:30px;opacity:${cap};white-space:normal;width:260px;text-align:right`, 'War.<br>Uncertainty.<br>Money. Health.<br>Not being good enough.');
+    const p1 = Math.round(43 * h1), n1 = Math.round(45 * h1);
+    el('panel', `left:330px;top:380px;width:420px;height:230px;opacity:${h1 * out};background:rgba(5,7,13,.72)`);
+    el('t head warm', `left:330px;width:420px;top:388px;text-align:center;font-size:96px;opacity:${h1 * out}`, p1 + '%');
+    el('t', `left:330px;width:420px;top:500px;text-align:center;font-size:21px;line-height:28px;white-space:normal;opacity:${h1 * out}`, `<b>${n1} of 105 people</b> carried at least one<br>childhood fear into adulthood.`);
+    const p2 = Math.round(57 * h2), n2 = Math.round(60 * h2);
+    el('panel', `left:640px;top:680px;width:400px;height:180px;opacity:${h2 * out};background:rgba(5,7,13,.74)`);
+    el('t head cool', `left:640px;width:400px;top:686px;text-align:center;font-size:80px;opacity:${h2 * out}`, p2 + '%');
+    el('t', `left:640px;width:400px;top:782px;text-align:center;font-size:19px;line-height:26px;white-space:normal;opacity:${h2 * out}`, `<b>${n2} of 105</b> kept none of their childhood fears.`);
+  }
+
+  // ---- scene 3: fears evolve (paired bars)
+  if (t >= S.evolve - .2 && t < S.top + .6) {
+    const a = win(t, S.evolve, .8), out = 1 - win(t, S.top - .4, .6);
+    el('panel', `left:40px;top:300px;width:1000px;height:760px;opacity:${a * out}`);
+    el('t', `left:40px;width:1000px;top:306px;height:6px;background:linear-gradient(90deg,#FF7A32 50%,#39A0FF 50%);border-radius:6px 6px 0 0;opacity:${a * out}`);
+    el('t head', `left:72px;top:326px;font-size:44px;opacity:${a * out}`, '<span class="orange">FEARS</span> <span class="blue">EVOLVE</span>');
+    el('t muted', `left:72px;top:392px;font-size:19px;opacity:${a * out}`, 'Every kind of fear we could point at shrank. Every kind we carry inside grew.');
+    el('t muted', `left:72px;top:420px;font-size:15px;opacity:${a * out}`, 'Share of the 105 people naming each category, as a child vs as an adult.');
+    el('t', `left:72px;top:456px;font-size:16px;opacity:${a * out}`, '<span class="orange">●</span> As a child &nbsp;&nbsp; <span class="blue">●</span> As an adult');
+    const x0 = 380, maxW = 560, rowH = 70, y0 = 500;
+    CATS.forEach(([name, c, ad], i) => {
+      const g = win(t, S.evolve + .5 + i * .22, .9) * out;
+      const y = y0 + i * rowH;
+      el('lbl', `left:60px;width:${x0 - 72}px;top:${y + 12}px;opacity:${g}`, name);
+      const wc = maxW * c * g, wa = maxW * ad * g;
+      el('bar', `left:${x0}px;top:${y}px;width:${wc}px;background:#FF7A32;opacity:${g}`);
+      el('bar', `left:${x0}px;top:${y + 26}px;width:${wa}px;background:#39A0FF;opacity:${g}`);
+      el('val', `left:${x0 + wc + 8}px;top:${y + 2}px;opacity:${g}`, fmtPct(c * g));
+      el('val', `left:${x0 + wa + 8}px;top:${y + 28}px;opacity:${g}`, fmtPct(ad * g));
+    });
+  }
+
+  // ---- scene 4: today's top fears
+  if (t >= S.top - .2 && t < S.stayed + .6) {
+    const a = win(t, S.top, .8), out = 1 - win(t, S.stayed - .4, .6);
+    el('panel', `left:40px;top:300px;width:1000px;height:760px;opacity:${a * out}`);
+    el('t', `left:40px;width:1000px;top:306px;height:6px;background:#39A0FF;border-radius:6px 6px 0 0;opacity:${a * out}`);
+    el('t head blue', `left:72px;top:326px;font-size:44px;opacity:${a * out}`, 'TODAY’S TOP FEARS');
+    el('t muted', `left:72px;top:392px;font-size:19px;opacity:${a * out}`, 'What people pick today, but did not pick as children.');
+    const x0 = 420, maxW = 520, rowH = 68, y0 = 460;
+    TOP.forEach(([name, n], i) => {
+      const g = win(t, S.top + .5 + i * .2, .9) * out;
+      const y = y0 + i * rowH;
+      el('lbl', `left:60px;width:${x0 - 72}px;top:${y + 8}px;font-size:19px;opacity:${g}`, name);
+      const w = maxW * (n / 14) * g;
+      el('bar', `left:${x0}px;top:${y}px;width:${w}px;height:40px;background:#39A0FF;opacity:${g}`);
+      el('val', `left:${x0 + w + 10}px;top:${y + 8}px;font-size:22px;opacity:${g}`, Math.round(n * g));
+    });
+  }
+
+  // ---- scene 5: what stayed / what changed
+  if (t >= S.stayed - .2 && t < S.end + .6) {
+    const a = win(t, S.stayed, .8), out = 1 - win(t, S.end - .4, .6);
+    el('panel', `left:40px;top:300px;width:1000px;height:760px;opacity:${a * out}`);
+    el('t', `left:40px;width:1000px;top:306px;height:6px;background:linear-gradient(90deg,#FF7A32 50%,#39A0FF 50%);border-radius:6px 6px 0 0;opacity:${a * out}`);
+    el('t head', `left:40px;width:1000px;top:326px;text-align:center;font-size:44px;opacity:${a * out}`, '<span class="orange">WHAT STAYED.</span> <span class="blue">WHAT CHANGED.</span>');
+    el('t', `left:40px;width:500px;top:400px;text-align:center;font-size:21px;font-weight:700;opacity:${a * out}`, 'Childhood fears that still haunt us');
+    el('t', `left:540px;width:500px;top:400px;text-align:center;font-size:21px;font-weight:700;opacity:${a * out}`, 'New fears in adult life');
+    el('t', `left:540px;top:440px;width:2px;height:580px;background:#1C2A44;opacity:${a * out}`);
+    const draw = (list, xs, topC, botC, botLabel) => list.forEach(([em, nm, c, n], i) => {
+      const g = win(t, S.stayed + .6 + i * .25, .9) * out;
+      const x = xs + i * 165 - 68;
+      el('card', `left:${x}px;top:460px;width:160px;opacity:${g};transform:translateY(${20 * (1 - g)}px)`,
+        `<div class="em">${em}</div><div class="nm">${nm}</div><div class="big ${topC}">${Math.round(c * g)}</div><div class="sm">feared it as a child</div><div class="big ${botC}" style="margin-top:14px">${Math.round(n * g)}</div><div class="sm">${botLabel}</div>`);
+    });
+    draw(STAYED, 128, 'warm', 'orange', 'still afraid today');
+    draw(CHANGED, 628, 'grey', 'blue', 'fear it now as an adult');
+  }
+
+  // ---- end card
+  if (t >= S.end - .2) {
+    const a = win(t, S.end, 1.0);
+    el('t', `left:0;top:0;width:1080px;height:1350px;background:rgba(5,7,13,${.55 * a})`);
+    el('t head', `left:0;width:1080px;top:470px;text-align:center;font-size:58px;opacity:${a}`, '<span class="warm">THE MONSTERS</span> CHANGED.');
+    el('t head', `left:0;width:1080px;top:545px;text-align:center;font-size:58px;opacity:${a}`, 'THE FEAR <span class="cool">DIDN’T.</span>');
+    el('t serif', `left:0;width:1080px;top:650px;text-align:center;font-size:26px;opacity:${win(t, S.end + .6, 1)}`, 'What Keeps You Up at Night? · Fabric Community Halloween DataViz Contest 2026');
+    el('t muted', `left:0;width:1080px;top:700px;text-align:center;font-size:20px;opacity:${win(t, S.end + 1.0, 1)}`, 'Built in Power BI · 105 survey responses · every number is live data');
+  }
+}
+window.render = render;
+window.TOTAL = S.total;
+render(0);
+</script>
+</body></html>

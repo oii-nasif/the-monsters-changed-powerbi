@@ -1,0 +1,7 @@
+EVALUATE
+SUMMARIZECOLUMNS (
+    DimFear[CategoryOrder], DimFear[Category],
+    "Childhood", CALCULATE ( [Number of Fear Selections], FactFearSelection[LifeStage] = "Childhood" ),
+    "Adult",     CALCULATE ( [Number of Fear Selections], FactFearSelection[LifeStage] = "Adult" )
+)
+ORDER BY DimFear[CategoryOrder]

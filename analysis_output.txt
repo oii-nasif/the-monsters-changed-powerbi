@@ -1,0 +1,470 @@
+rows: 105  columns: ResponseKey, ageGroup, childhoodFearsJson, countryChildhood, countryNow, currentFearsJson, dataNightmare, fabricToolsJson, gender, submittedAt
+
+## ageGroup
+  40  35–44
+  35  25–34
+  18  45–54
+   8  55–64
+   4  18–24
+
+## gender
+  62  Male
+  41  Female
+   2  Another gender / prefer not to say
+
+## countryNow
+  16  Netherlands
+   9  India
+   9  Canada
+   8  Germany
+   7  Austria
+   7  United Kingdom
+   6  United States
+   5  Sweden
+   5  Spain
+   5  Romania
+   3  Indonesia
+   3  Italy
+   2  France
+   2  Belgium
+   2  Brazil
+   2  Portugal
+   2  Ireland
+   2  Denmark
+   1  South Africa
+   1  Hungary
+   1  North Macedonia
+   1  Argentina
+   1  Nigeria
+   1  Switzerland
+   1  Finland
+   1  Nicaragua
+   1  Poland
+   1  Iceland
+
+## countryChildhood
+  12  India
+  12  Netherlands
+   9  Germany
+   8  United States
+   7  Austria
+   6  Spain
+   5  Canada
+   4  United Kingdom
+   4  France
+   4  Russia
+   4  Brazil
+   3  Indonesia
+   3  Sweden
+   3  Denmark
+   2  Italy
+   2  Belgium
+   2  Poland
+   2  Romania
+   1  South Africa
+   1  North Macedonia
+   1  Hungary
+   1  Argentina
+   1  Morocco
+   1  Moldova
+   1  Nigeria
+   1  China
+   1  Ireland
+   1  Portugal
+   1  Finland
+   1  Nicaragua
+   1  Iceland
+
+moved country: 24 / 105
+
+## childhood fears
+  14  Being trapped / small spaces
+  13  Heights
+  11  Snakes
+  11  The dark
+   9  Death (your own or a loved one’s)
+   9  Demons/the devil
+   9  Dentists
+   9  Being disliked
+   8  Spiders
+   8  Basements / Attics
+   7  Being laughed at
+   7  Embarrassment
+   6  Fire
+   6  Being judged
+   6  Needles/shots
+   6  Ghosts
+   6  Drowning
+   6  Insects/bugs in general
+   6  The unknown/unfamiliar
+   5  Radioactivity/nuclear disaster
+   5  Being watched
+   5  Cemeteries
+   5  Being alone / Loneliness
+   5  War
+   4  Bats
+   4  Pets dying
+   4  Deep/open water
+   4  Public speaking
+   4  Dogs
+   4  Sharks
+   4  Monsters under the bed
+   4  Uncertainty about the future
+   3  Natural disasters generally
+   3  Doctors/hospitals
+   3  Aliens
+   3  Conflict/confrontation
+   3  Tunnels
+   3  Rejection
+   3  Divorce/breakup
+   3  Wasting one’s life/potential
+   3  Not being good enough
+   3  Getting lost
+   3  Zombies
+   3  Dolls/mannequins
+   3  Rats/mice
+   3  Clowns
+   3  Abandoned buildings
+   3  Bees/wasps
+   3  Intruders/home invasion
+   2  Blood
+   2  Elevators
+   2  Cancer or another serious diagnosis
+   2  Open/empty spaces
+   2  Separation from friends or family
+   2  Thunderstorms/lightning
+   1  Flying
+   1  Job loss
+   1  Failing at work/school
+   1  Choking
+   1  Bridges
+   1  Crowded spaces
+   1  Birds
+   1  Abandonment
+
+## current fears
+  19  War
+  14  Uncertainty about the future
+  12  Death (your own or a loved one’s)
+  11  Financial insecurity/poverty
+  10  Wasting one’s life/potential
+  10  Not being good enough
+   9  Cancer or another serious diagnosis
+   9  Radioactivity/nuclear disaster
+   9  Being trapped / small spaces
+   8  Snakes
+   7  Conflict/confrontation
+   7  Separation from friends or family
+   6  Natural disasters generally
+   6  Being alone / Loneliness
+   6  Divorce/breakup
+   6  None of these
+   6  Spiders
+   5  Rejection
+   5  Pets dying
+   5  Heights
+   5  Being disliked
+   5  Job loss
+   5  The unknown/unfamiliar
+   4  Getting sick/illness
+   4  Public speaking
+   4  Bees/wasps
+   4  Rats/mice
+   4  Being laughed at
+   3  Prefer not to answer
+   3  Insects/bugs in general
+   3  Deep/open water
+   3  Intruders/home invasion
+   3  Dentists
+   3  Losing a limb or developing a disability
+   3  Dogs
+   2  Failing at work/school
+   2  Being forgotten
+   2  Ghosts
+   2  Sharks
+   2  Being judged
+   2  Drowning
+   2  Embarrassment
+   2  Tunnels
+   2  Monsters under the bed
+   2  Bats
+   2  Fire
+   2  Abandoned buildings
+   2  Choking
+   2  The dark
+   2  Zombies
+   1  Needles/shots
+   1  Missing deadlines
+   1  Something else
+   1  Abandonment
+   1  Something else: War
+   1  Bridges
+   1  Germs/contamination
+   1  Commitment
+
+## fear count per person (child)
+  84  3
+  12  2
+   9  1
+
+## fear count per person (now)
+  71  3
+  17  1
+  17  2
+
+## childhood by category
+  95  Places & situations
+  44  Animals
+  42  Social
+  39  Supernatural & intruders
+  24  Death & loss
+  22  Medical & body
+  10  Global threats
+   9  Life, work & future
+
+## current by category
+  44  Life, work & future
+  41  Places & situations
+  39  Social
+  39  Death & loss
+  32  Animals
+  28  Global threats
+  21  Medical & body
+   9  Supernatural & intruders
+   9  No answer
+   2  Other
+
+people keeping >=1 childhood fear: 45/105
+
+## fears KEPT (same person, child & now)
+   6  Snakes
+   5  War
+   5  Being trapped / small spaces
+   4  Heights
+   2  Pets dying
+   2  Being alone / Loneliness
+   2  Death (your own or a loved one’s)
+   2  Being disliked
+   2  Dogs
+   2  Spiders
+   2  Radioactivity/nuclear disaster
+   2  Rats/mice
+   2  Uncertainty about the future
+   1  Needles/shots
+   1  Embarrassment
+   1  Drowning
+   1  Tunnels
+   1  Natural disasters generally
+   1  Dentists
+   1  Rejection
+   1  Choking
+   1  Deep/open water
+   1  Not being good enough
+   1  Abandoned buildings
+   1  Being laughed at
+   1  The unknown/unfamiliar
+   1  Separation from friends or family
+   1  Zombies
+   1  Public speaking
+   1  Wasting one’s life/potential
+   1  Fire
+
+## fears OUTGROWN
+  11  The dark
+   9  Demons/the devil
+   9  Heights
+   9  Being trapped / small spaces
+   8  Basements / Attics
+   8  Dentists
+   7  Death (your own or a loved one’s)
+   7  Being disliked
+   6  Spiders
+   6  Being laughed at
+   6  Being judged
+   6  Ghosts
+   6  Embarrassment
+   6  Insects/bugs in general
+   5  Fire
+
+## fears GAINED
+  14  War
+  12  Uncertainty about the future
+  11  Financial insecurity/poverty
+  10  Death (your own or a loved one’s)
+   9  Cancer or another serious diagnosis
+   9  Wasting one’s life/potential
+   9  Not being good enough
+   7  Conflict/confrontation
+   7  Radioactivity/nuclear disaster
+   6  Separation from friends or family
+   6  Divorce/breakup
+   6  None of these
+   5  Natural disasters generally
+   5  Job loss
+   4  Rejection
+
+## retention rate (kept / had as child), fears with >=4 childhood mentions
+  5/5   100%  War
+  6/11   55%  Snakes
+  2/4    50%  Pets dying
+  2/4    50%  Dogs
+  2/4    50%  Uncertainty about the future
+  2/5    40%  Radioactivity/nuclear disaster
+  2/5    40%  Being alone / Loneliness
+  5/14   36%  Being trapped / small spaces
+  4/13   31%  Heights
+  2/8    25%  Spiders
+  1/4    25%  Deep/open water
+  1/4    25%  Public speaking
+  2/9    22%  Death (your own or a loved one’s)
+  2/9    22%  Being disliked
+  1/6    17%  Fire
+  1/6    17%  Needles/shots
+  1/6    17%  Drowning
+  1/6    17%  The unknown/unfamiliar
+  1/7    14%  Being laughed at
+  1/7    14%  Embarrassment
+  1/9    11%  Dentists
+  0/11    0%  The dark
+  0/9     0%  Demons/the devil
+  0/8     0%  Basements / Attics
+  0/6     0%  Being judged
+  0/6     0%  Ghosts
+  0/6     0%  Insects/bugs in general
+  0/5     0%  Being watched
+  0/5     0%  Cemeteries
+  0/4     0%  Bats
+  0/4     0%  Sharks
+  0/4     0%  Monsters under the bed
+
+## category flow (each person: every child-cat x now-cat pair)
+  29  Places & situations -> Places & situations
+  24  Places & situations -> Life, work & future
+  23  Places & situations -> Death & loss
+  19  Places & situations -> Animals
+  19  Places & situations -> Social
+  17  Places & situations -> Global threats
+  15  Animals -> Places & situations
+  15  Animals -> Animals
+  15  Animals -> Death & loss
+  13  Places & situations -> Medical & body
+  13  Supernatural & intruders -> Death & loss
+  13  Social -> Social
+  13  Social -> Death & loss
+  13  Supernatural & intruders -> Global threats
+  13  Death & loss -> Death & loss
+  12  Animals -> Life, work & future
+  12  Supernatural & intruders -> Animals
+  11  Social -> Life, work & future
+  11  Social -> Places & situations
+  10  Supernatural & intruders -> Places & situations
+
+## current fear category by age group (share of mentions)
+                             18–24   25–34   35–44   45–54   55–64
+Animals                         0%     20%     10%      6%      7%
+Places & situations            14%     14%     19%     10%     14%
+Medical & body                  0%      8%      9%      4%     21%
+Supernatural & intruders       14%      4%      3%      2%      0%
+Death & loss                   14%     16%     12%     18%     21%
+Social                         29%      8%     16%     24%      7%
+Life, work & future            14%     14%     19%     20%      0%
+Global threats                 14%     13%      9%     12%      0%
+
+## childhood fear category by age group (share of mentions)
+                             18–24   25–34   35–44   45–54   55–64
+Animals                        10%     24%     10%     10%     16%
+Places & situations            40%     31%     37%     30%     32%
+Medical & body                  0%      9%      8%      6%      5%
+Supernatural & intruders       10%     16%     11%     20%      0%
+Death & loss                   20%      7%      9%     10%      0%
+Social                         10%      5%     17%     20%     42%
+Life, work & future            10%      2%      5%      0%      5%
+Global threats                  0%      5%      3%      4%      0%
+
+## dataNightmare
+  23  It arrives a mess (missing values, duplicates, inconsistent formats)
+  19  It exists in too many versions (no clear source of truth)
+  17  It doesn’t add up (conflicting numbers and mysterious totals)
+  16  It takes forever (painfully slow processing or queries)
+  14  It falls into the wrong hands (inappropriate access to sensitive data)
+   8  The AI confidently gets it wrong (unreliable answers or predictions)
+   6  It never arrives (broken pipelines and failed refreshes)
+   2  We spot the problem too late (missed events and warnings)
+
+## fabric tools
+  82  Power BI reports
+  81  Power BI semantic models
+  70  Lakehouses
+  63  Data pipelines
+  59  Notebooks / Spark
+  56  SQL databases
+  47  Dataflows Gen2
+  46  Warehouses
+  44  Copilot in Fabric
+  42  OneLake shortcuts
+  30  Copy jobs
+  25  Fabric Apps
+  24  Dataflows Gen1
+  23  Mirroring
+  23  Eventstreams
+  22  Fabric data agents
+  21  Real-Time Dashboards
+  21  Activator
+  21  User data functions
+  19  Eventhouses / KQL databases
+  13  Ontology (Fabric IQ)
+   8  ML experiments / models
+   8  None yet
+
+## tools per person
+  11  5
+  10  1
+  10  8
+   9  9
+   9  11
+   7  4
+   7  6
+   6  7
+   6  10
+   5  2
+   4  3
+   4  17
+   3  12
+   3  13
+   3  15
+   3  18
+   2  16
+   1  14
+   1  19
+   1  22
+
+## submittedAt (date)
+  28  2026-10-07
+  23  2026-10-06
+  12  2026-10-05
+  10  2026-10-10
+   8  2026-10-08
+   6  2026-10-09
+   5  2026-09-29
+   4  2026-09-28
+   2  2026-10-01
+   2  2026-10-11
+   1  2026-09-27
+   1  2026-09-30
+   1  2026-10-02
+   1  2026-10-03
+   1  2026-10-04
+
+## current fear category by gender (share of mentions)
+                                          Male              FemaleAnother gender / prefer not to say
+Animals                             23/153 15%            9/108 8%              0/3 0%
+Places & situations                 24/153 16%          16/108 15%             1/3 33%
+Medical & body                       10/153 7%          11/108 10%              0/3 0%
+Supernatural & intruders              5/153 3%            4/108 4%              0/3 0%
+Death & loss                        21/153 14%          18/108 17%              0/3 0%
+Social                              26/153 17%          12/108 11%             1/3 33%
+Life, work & future                 24/153 16%          20/108 19%              0/3 0%
+Global threats                       14/153 9%          14/108 13%              0/3 0%
+
+## tangible share: childhood 200/285 tangible = 70%
+## tangible share: current   103/253 tangible = 41%
