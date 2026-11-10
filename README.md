@@ -153,7 +153,7 @@ node zipdir.js ../build/pbix_v2 "../build/The Monsters Changed.pbix"
 
 ## Credits
 
-Contest organized by [Karin Szilágyi](https://www.linkedin.com/in/karinszil/) and the [Fabric Community](https://community.fabric.microsoft.com/) team.
+Contest organized by [Karin Szilágyi](https://www.linkedin.com/in/karinszilagyi/) and the [Fabric Community](https://community.fabric.microsoft.com/) team.
 
 ---
 
